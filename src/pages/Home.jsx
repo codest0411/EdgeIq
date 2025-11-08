@@ -17,7 +17,14 @@ export default function Home() {
     const fetchStats = async () => {
       try {
         const response = await axios.get('/api/stats/platform');
-        setStats(response.data);
+        if (response.data) {
+          setStats({
+            activeStudents: response.data.activeStudents || 10000,
+            expertCourses: response.data.expertCourses || 500,
+            successRate: response.data.successRate || 95,
+            industryPartners: response.data.industryPartners || 50
+          });
+        }
       } catch (error) {
         console.error('Failed to fetch stats:', error);
         // Keep default values if API fails
@@ -116,7 +123,7 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <StatCard 
-              number={`${stats.expertCourses.toLocaleString()}+`} 
+              number={`${(stats.expertCourses || 0).toLocaleString()}+`} 
               label="Available Courses" 
               loading={loading}
             />
