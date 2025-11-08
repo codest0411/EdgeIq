@@ -59,7 +59,7 @@ export default function CertificateGenerator() {
         throw new Error('Authentication required. Please login again.');
       }
 
-      const response = await fetch('/api/payments/create-certificate-checkout', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/payments/create-certificate-checkout`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
