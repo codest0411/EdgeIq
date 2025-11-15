@@ -681,6 +681,8 @@ export default function AuthPage() {
                       <div className="text-center pt-4 border-t border-gray-200 dark:border-gray-700">
                         <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
                           Not an instructor yet?
+                          (for testing purpose only use this id pass)
+                          (totalhacking770@gmail.com , Chirag@00 )
                         </p>
                         <button
                           type="button"
